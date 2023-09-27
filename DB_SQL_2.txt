@@ -1,0 +1,8 @@
+SELECT
+o.id,
+o.track,
+case when o.finished = TRUE then 2
+     when o.cancelled = TRUE then -1
+     when o."inDelivery" = TRUE then 1
+     else 0 end as status_calculated
+from "Orders" o;

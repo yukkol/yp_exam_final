@@ -1,0 +1,6 @@
+SELECT
+	c.login,
+	count (o.id) as num_orders
+FROM "Couriers" c inner join "Orders" o on (c.id = o."courierId")
+WHERE o."inDelivery" = TRUE
+GROUP BY c.login;
